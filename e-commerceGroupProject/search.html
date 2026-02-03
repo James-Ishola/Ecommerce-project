@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css">
+  <title>Search Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-6">
+
+  <!-- NAVBAR------------------------- -->
+  <nav class="relative sticky w-full  top-0 z-[10000] bg-white md:gap-[100px] md:w-full  flex lg:gap-[200px] bg-whitesmoke h-[7vh] lg:px-2.5 px-2 justify-center font-medium items-center shadow-lg">
+    <!-- burger menu -->
+     <img onclick="toggle()" id="burger" class=" absolute left-5 w-[30px] lg:hidden md:hidden" src="images/burger-bar.png" alt="">
+     <!--  -->
+   
+    <div class="hidden lg:flex md:flex md:space-x-5 flex lg:space-x-10 items-center justify-center text-[#4b4a44] text-[16px]">
+      <a class="hover:border-b-4 hover:border-b-[#ffd700] font-semibold" href="women.html"><p>Women</p></a>
+      <a class="hover:border-b-4 hover:border-b-[#ffd700] font-semibold" href="men.html"><p>Men</p></a>
+      <a class="hover:border-b-4 hover:border-b-[#ffd700] font-semibold" href="jewellery.html"><p>Jewellery</p></a>
+      <a class="hover:border-b-4 hover:border-b-[#ffd700] font-semibold" href="blog.html"><p>Blog</p></a>
+
+    </div>
+
+    <a href="index.html"><div class="flex flex-col"><p class="text-center m-auto font-bold text-2xl lg:mr-2 mr-[50px]">PAGATTS</p>
+    <div id="pagatts-slide" class="animate-ping bg-[#ffd700] h-[4px] w-[107px]"></div></div>
+    </a>
+    <div class=" flex space-x-3 lg:items-center items-end lg:justify-between">
+      <div class="flex mr-[-80px] lg:mr-0 md:mr-0 md:ml-0 lg:ml-0 ml-[100px]"><input id="searchInput" placeholder="Search" type="text" class="text-gray-400 border-[1px] md:w-20 lg:w-[200px] w-[100px] border-gray-300 outline-none mr-[5px] pl-2 placeholder:text-sm"><button id="searchBtn" class="border-[1px] border-gray-300 ml-[-5px] pl-[1px] flex items-center justify-cente"><img class="w-[18px] " src="images/search (1).png" alt=""></button></div>
+     <div class="">
+       <div class="hidden lg:flex md:flex flex gap-5 items-center justify-center">
+         <img onclick="toggleBox()" id="loginIcon" href="" class="w-[22px] cursor-pointer" src="images/icons8-user-32.png" alt="">
+         <!--MYCART AND UPDATE CART COUNT-->
+       <a href="myCart.html" class="relative">
+          <img class="w-[20px]" src="images/shopping-cart.png" alt="Cart">
+          <span id="cartCount" class="absolute -top-2 -right-2 bg-black text-white text-[10px] w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold">0</span>
+       </a>
+
+        <a href="contact.html"><img class="w-[20px]" src="images/icons8-contact-50 (1).png" alt=""></a>
+        
+      </div>
+      <div class="bg-[#ffd700] h-[4px] w-[107px] mt-[1px] hidden lg:flex md:flex"></div>
+     </div>
+    </div>
+  </nav>
+
+  <!-- <div class="max-w-3xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Search Results</h1>
+    <ul id="resultsList" class="space-y-4"></ul>
+  </div> -->
+
+  <article class="bg-[#FAF9F6] items-center justify-center mt-[60px]">
+      <ul class="" id="resultsList" class="bg-[#FAF9F6] flex items-center ">
+       
+        <!-- <li class="w-[300px] h-[400px] p-[10px]">
+          
+        </li> -->
+        
+      </ul>
+</article>
+
+<!-- footer---------------- -->
+ <footer class="footer">
+    <div class="footer-container">
+     
+      <div class="footer-column">
+        <h2 class="logo">PAGATTS</h2>
+        <p>
+          PAGATTS is your premier destination for [style/type of clothing and Jewellery, e.g., stylish, comfortable, sustainable]. We're passionate about delivering high-quality clothing that empowers individuals to express themselves with confidence.
+
+        </p>
+
+        <div class="payment-icons">
+          <!-- <img src="https://www.citypng.com/photo/18932/download-visa-card-logo-icon-png" alt="Visa">
+          <img src="https://www.citypng.com/photo/18771/hd-mastercard-payment-logo-transparent-background" alt="MasterCard">
+          <img src="https://www.citypng.com/photo/18767/transparent-hd-paypal-logo" alt="PayPal"> -->
+        </div>
+      </div>
+
+     
+      <div class="footer-column">
+        <h4>USEFULL LINKS</h4>
+        <ul>
+          <a href="women.html"><li>Women</li></a>
+          <a href="men.html"><li>Men</li></a>
+          <a href="jewellery.html"><li>Jewellery</li></a>
+          <a href="blog.html"><li>Blog</li></a>
+          <a href="contact.html"><li>Contact Us</li></a>
+        </ul>
+      </div>
+
+    
+      <div class="footer-column">
+        <h4>SITEMAP</h4>
+        <ul>
+          <li>Partners</li>
+          <li>Bloggers</li>
+          <li>Support</li>
+          <li>Terms of Use</li>
+        </ul>
+      </div>
+
+     
+      <div class="footer-column">
+        <h4>SHIPPING & RETURNS</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Track Orders</li>
+          <li>Returns</li>
+          <li>Jobs</li>
+          <li>Shipping</li>
+          <li>Blog</li>
+        </ul>
+      </div>
+
+     
+      <div class="footer-column">
+        <h4>CONTACT</h4>
+        <ul>
+          <li>PAGATTS Company Ltd</li>
+          <li>123, Awolowo Road, Ikoyi, Lagos</li>
+          <li>09017859924, 09066482224</li>
+          <li>PAGATTS@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+     
+       <div class="newsletter">
+  <h3>Subscribe to our Newsletter</h3>
+  <form id="newsletter-form">
+    <input class="text-black" type="email" id="newsletter-email" placeholder="Enter your email" required />
+    <button type="submit">Subscribe</button>
+  </form>
+   <p id="newsletter-message"></p>
+  </div>
+
+    <div class="footer-bottom">
+      <p>Copyright ©2025 All rights reserved | Powered by  PAGATTS</a></p>
+    </div>
+  </footer> 
+
+  <script>
+
+const data = [
+  {
+    id: 1,
+    image: "images/female-img/female.s49.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "Wkior Shift Dress",
+    price: 4899,
+    description:
+      "For Women V Neck Short Sleeves Solid Color Casual Flowy Summer Dresses(S-2XL)",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "100% Polyester",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 16,
+    image: "images/men-img/71Ra5-MwliL._AC_SY879_.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "UOUA Outfits",
+    price: 4299,
+    description:
+      "Summer Casual Short Sleeve Button Down Shirt & Long Pants Sets Beach Vacation",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "95% Polyester",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 2,
+    image: "images/female-img/female2.s50.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "QACOHU Dresses",
+    price: 4599,
+    description:
+      "V Neck Spring Summer Ruffle Long Sleeve Simple Casual Loose Flowy Autumn Winter Shift Dress",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "100% Polyester",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 3,
+    image: "images/female-img/female3.s70.jpg",
+    category: "Women",
+    section: "Clothing",
+    title: "JOCAFIYE Casual Dress",
+    price: 7099,
+    description:
+      "Short Sleeve V-Neck Dress Shift Dress Summer Dresses for Women 2025",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "100% Polyester",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 25,
+    image: "images/men-img/men9.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "COOFANDY Cotton Sets",
+    price: 4999,
+    description:
+      "Casual Long Sleeve Cuban Henley Shirt and Loose Pants Set Beach Vacation Outfits",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType:
+      "typeHIGH QUALITY FABRIC - 95% Polyester, 5% Spandex.Soft, Breathable and Stretchy Waffle textured fabric.",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 26,
+    image: "images/men-img/men10.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "COOFANDY Cotton Sets",
+    price: 4999,
+    description:
+      "Casual Long Sleeve Cuban Henley Shirt and Loose Pants Set Beach Vacation Outfits",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "49%rayon 36%polyester 15%nylon",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 27,
+    image: "images/male-jewellery/menjewellery1.jpg",
+    section: "Male Jewellery",
+    category: "Men",
+    title: "Ursteel Necklace",
+    price: 32300,
+    description:
+      "for Men - 18K Gold Silver Black Cross Necklaces Chain for Men, Layered Rope Chain Necklace Mens Jewelry 16 18 20 22 24 Inch",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Steel",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 4,
+    image: "images/female-img/female4.jpg",
+    category: "Women",
+    section: "Clothing",
+    title: "QACOHU Summer Dress",
+    price: 4899,
+    description: "V Neck Ruffle Short Sleeve Casual Shift Dress",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "100% Polyester",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 5,
+    image: "images/female-img/female5.jpg",
+    category: "Women",
+    section: "Clothing",
+    title: "Nmoder Casual Dress",
+    price: 6099,
+    description:
+      "Semi Formal Fit and Flare 3/4 Sleeve A-line Church Work Dress with Pockets",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Polyester&Elastane",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 6,
+    image: "images/female-img/female6.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "HOTOUCH Dress",
+    price: 3399,
+    description:
+      "2025 Short Sleeve A-Line Mini Dress Casual Crew Neck Shift Dress Beach",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Polyester&Elastane",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 7,
+    image: "images/female-img/female7.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "Zeagoo Summer Dress",
+    price: 3099,
+    description:
+      "Midi Tiered Casual Dress Floral V Neck Ruffle Short Sleeve Flowy Beach Dress with Pockets",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "95% Polyester, 5% Spandex",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 8,
+    image: "images/female-img/female8.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "LOMON Length Sleeve",
+    price: 2999,
+    description:
+      "2025 Short Sleeve A-Line Mini Dress Casual Crew Neck Shift Dress Beach",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "95% Polyester, 5% Spandex",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 9,
+    image: "images/female-img/female9.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "Zeagoo Midi Dres",
+    price: 4199,
+    description:
+      "2025 Short Sleeve A-Line Mini Dress Casual Crew Neck Shift Dress Beach",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Polyester&Elastane",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 10,
+    image: "images/female-img/female10.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "Short Sleeve V-Neck",
+    price: 6099,
+    description:
+      "2025 Short Sleeve A-Line Mini Dress Casual Crew Neck Shift Dress Beach",
+    shippingInformation: "delivery Mon,Aug 28",
+    fabricType: "Polyester&Elastane",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 11,
+    image: "images/female-jewellery/71YFnoc6TNL._AC_SY695_.jpg",
+    section: "Female Jewellery",
+    category: "Women",
+    title: "Gold Plated Necklaces",
+    price: 10000,
+    description:
+      "Anniversary for Gifts for Women, 18k Gold Plated Sunflower Necklaces for Women, Anniversary Her Gifts",
+    shippingInformation: "delivery Mon,Sep 18",
+    fabricType: "Sterling Silver",
+    careInstructions: "nill",
+    origin: "Imported",
+  },
+
+  {
+    id: 12,
+    image: "images/female-jewellery/femalejewellery2.jpg",
+    section: "Female Jewellery",
+    category: "Women",
+    title: "Moissanite Necklaces",
+    price: 21900,
+    description:
+      "For Women 0.5Ct-7.6Ct Jewelry for Wife Her Mom Daughter Girlfriend Birthday",
+    shippingInformation: "delivery Jul 09",
+    fabricType: "Necklace",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 13,
+    image: "images/female-jewellery/femalejewellery3.jpg",
+    section: "Female Jewellery",
+    category: "Women",
+    title: "old Bangle Bracelets",
+    price: 2999,
+    description:
+      "For Women Teens Trendy Chunky Adjustable Twist Cuff Bracelet Jewelry Gifts",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Yellow Gold",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 14,
+    image: "images/female-jewellery/femalejewellery4.jpg",
+    section: "Female Jewellery",
+    category: "Women",
+    title: "14K Gold Necklace",
+    price: 50099,
+    description: "Dainty Gold Name Necklace Personalized Initial",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Gold Plated",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 15,
+    image: "images/female-jewellery/femalejewellery5.jpg",
+    section: "Female Jewellery",
+    category: "Women",
+    title: "DEARMAY Bracelet",
+    price: 15500,
+    description:
+      "14K Real Gold Jewelry Sets Trendy Thin Dainty Stackable Cuban Link",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Metal",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 16,
+    image: "images/female-img/female6.jpg",
+    section: "Clothing",
+    category: "Women",
+    title: "Swarovski Crystal",
+    price: 9900,
+    description: "Swarovski Luna Crystal Jewelry Collection",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Metal",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 17,
+    image: "images/men-img/men2.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "FZNHQL Tracksuits",
+    price: 2399,
+    description:
+      "2 Piece Casual Athletic Jogging Outfits Short/Long Sleeve Track Suits",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Polyester&Elastane",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 18,
+    image: "images/men-img/men3.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "COOFANDY Linen Outfit",
+    price: 2099,
+    description: "Beach Button Down Shirt Casual Loose Pant Sets",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Polyester&Elastane",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 19,
+    image: "images/men-img/men4.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "COOFANDY Cotton Sets",
+    price: 4999,
+    description:
+      "Casual Long Sleeve Cuban Henley Shirt and Loose Pants Set Beach",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "49%rayon 36%polyester 15%nylon",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 21,
+    image: "images/men-img/men5.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "COOFANDY Long Sleeve ",
+    price: 4999,
+    description:
+      "Button Down Cuban Shirt and Pants Set Summer Beach Set Outfits",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "49%rayon 36%polyester 15%nylon",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 22,
+    image: "images/men-img/men6.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "COOFANDY Linen Outfit",
+    price: 5699,
+    description: "Beach Button Down Shirt Casual Loose Pant Sets",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "49%rayon 36%polyester 15%nylon",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 23,
+    image: "images/men-img/men7.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "UOUA Summer Suit",
+    price: 5699,
+    description:
+      "2 Piece Shorts Sets Short Sleeve Sweatsuit Outfits 1/4 Zip Golf Polo Shirts Loungewear",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "97% Polyester, 3% Elastane",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 24,
+    image: "images/men-img/men8.jpg",
+    section: "Clothing",
+    category: "Men",
+    title: "Babioboa Tracksuit",
+    price: 3199,
+    description:
+      "Summer T Shirt & Shorts set 2 Pockets Oversize Two Piece Casual Daily Duty-off",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType:
+      "typeHIGH QUALITY FABRIC - 95% Polyester, 5% Spandex.Soft, Breathable and Stretchy Waffle textured fabric.",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 28,
+    image: "images/male-jewellery/menjewellery2.jpg",
+    section: "Male Jewellery",
+    category: "Men",
+    title: "Aniu Cremation Jewelry",
+    price: 7999,
+    description:
+      "Ashes S925 Sterling Silver Urn Necklace Memorial Necklace for Human Ashes of Loved",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Steel",
+    careInstructions: "Machine Wash",
+    origin: "Imported",
+  },
+
+  {
+    id: 29,
+    image: "images/male-jewellery/menjewellery3.jpg",
+    section: "Male Jewellery",
+    category: "Men",
+    title: "Momlovu Gold Chain",
+    price: 5499,
+    description:
+      "4mm/6mm Non-Tarnish 18K Gold-Plated Cuban Link Chain, Cool Men's Necklace Chain",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Steel",
+    careInstructions: "",
+    origin: "Imported",
+  },
+
+  {
+    id: 30,
+    image: "images/male-jewellery/menjewellery4.jpg",
+    section: "Male Jewellery",
+    category: "Men",
+    title: "Lacoste Bracelet",
+    price: 10000,
+    description: "Lacoste Metropole Men's Bracelets",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Steel",
+    careInstructions: "",
+    origin: "Imported",
+  },
+
+  {
+    id: 31,
+    image: "images/male-jewellery/menjewellery5.jpg",
+    section: "Male Jewellery",
+    category: "Men",
+    title: "RANKEEF Tiger Bracelet",
+    price: 18000,
+    description:
+      "8MM Natural Stone Stretch Adjustable Black Crystal Beaded Bracelet",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Steel",
+    careInstructions: "",
+    origin: "Imported",
+  },
+
+  {
+    id: 32,
+    image: "images/male-jewellery/menjewellery6.webp",
+    section: "Male Jewellery",
+    category: "Men",
+    title: "Watch Jewelry Box",
+    price: 11000,
+    description:
+      "6-Slot 2-Layer Watch Case and Sunglasses Storage with Large Glass Lid, Men's Jewelry Box",
+    shippingInformation: "delivery Mon,jul 28",
+    fabricType: "Steel",
+    careInstructions: "",
+    origin: "Imported",
+  },
+];
+   
+
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("query")?.toLowerCase() || "";
+    const resultsList = document.getElementById("resultsList");
+
+    function searchItems(query) {
+      return data.filter(dat =>
+        dat.title.toLowerCase().includes(query) ||
+        dat.category.toLowerCase().includes(query) ||
+        dat.description.toLowerCase().includes(query)
+      );
+    }
+
+    function displayResults(results) {
+      resultsList.innerHTML = "";
+
+      if (results.length === 0) {
+        resultsList.innerHTML = `<li class="text-gray-500">No results found for "${query}"</li>`;
+        return;
+      }
+
+      results.forEach(item => {
+        const li = document.createElement("li");
+        li.className = "bg-white p-4 rounded shadow";
+
+        li.innerHTML = `
+        <div class="w-[200px] shadow-lg pb-4 flex flex-col items-center justify-center mb-[70px] space-y-0 gap-[30px]">
+      <div class="flex items-center justify-center w-[100%] h-[200px] bg-white border-[5px] border-[#ffd700] rounded-[1px]">
+          <img class="w-[100px]" id="" src="${item.image}" alt="">
+      </div>
+
+      <p class="px-5 text-[18px] text-[#36454F] font-bold mt-7 text-center">${item.title}</p>
+
+      <p class="text-teal-700 text-center mt-4 text-3xl font-bold">&#8358;${item.price}</p>
+
+     
+        `
+        
+        ;
+
+        resultsList.appendChild(li);
+      });
+    }
+
+    const filtered = searchItems(query);
+    displayResults(filtered);
+  </script>
+
+</body>
+</html>
